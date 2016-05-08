@@ -1,0 +1,10 @@
+cancer
+cancerous
+diabetes
+terminal
+hospital
+stroke
+surgery
+transplant
+tumor
+diagnosis

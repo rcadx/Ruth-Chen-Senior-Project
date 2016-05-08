@@ -1,0 +1,49 @@
+TO DO
+
+Keyword ideas:
+	Cancer
+	Doctor
+	Hospital
+	Leukemia
+	Medicine
+	Chemo
+	Pain
+	Diabetes
+	Arthritis
+	Lung
+	Coronary
+	Epilepsy
+	Tumor
+	Any others?
+	
+Filter out: 
+	Donate
+	Donation
+	Spanish
+	Horoscope
+	Emojis
+	URL 
+	Family members with cancer
+	How to do this? Reg ex?
+	
+How to figure out what tweets are actually relevant
+	Here’s the current plan:
+		Round 1: Run first round of sweeping
+			Result: a bunch of tweets from all random users
+		Round 2: Go through each user of each tweet from round 1 and grab as many tweets from their timeline as possible
+			How I want to do this in code:
+				array[] user_ids;
+				for(i to user_ids.length){
+					new array user_id_tweets;
+					for(i to arbitrary large number of tweets I want){
+						user_id_tweets[i] = query result;
+					}
+				}
+		Round 3: Run each user’s tweets through m-turk workers
+			Have each work rate whether a diagnosis happened in the set of the user’s tweets
+			PROBLEM: This could get SUPER expensive if we run ALL tweets from round 1, especially since most of those tweets aren’t actually what we’re looking for
+				Best plan of action to fix this? 
+					Maybe have our research assistants manually filter out tweets?
+					Has to be some better way through computer science
+Other questions:
+	Running this on amazon ec2 instance so it can constantly be collecting data without me having to leave my laptop open
