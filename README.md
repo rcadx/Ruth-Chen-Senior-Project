@@ -10,3 +10,5 @@ This program is written by Ruth Chen (ruthchen@wustl.edu), a psychology and comp
 This program is written in Java and builds on Twitter4J (http://twitter4j.org/en/index.html) by Yusuke Yamamoto (yusuke@mac.com). 
 
 This program is written for the Personality and Measurement Development Lab in the Psychological & Brain Sciences Department at Washington University. This project was overseen by Sara Weston (weston.sara@gmail.com) and Joshua Jackson (j.jackson@wustl.edu).
+
+Check out the Instructions Manual to get started!
