@@ -5,7 +5,7 @@ If a word is irrelevant, give it a negative rating.
 You MUST separate the word and a rating by a TAB. 
 Keep one word on each line. Don't add any extra line breaks!
 
-cancer lol	50
+cancer	50
 leukemia	80
 tumor	50
 diabetes	80
