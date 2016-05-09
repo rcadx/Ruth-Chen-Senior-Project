@@ -7,4 +7,3 @@ surgery
 transplant
 tumor
 diagnosis
-[keyword]
