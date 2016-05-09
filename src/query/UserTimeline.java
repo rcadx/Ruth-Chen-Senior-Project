@@ -110,7 +110,7 @@ public class UserTimeline {
 						tweetNumber++;
 					}
 					
-					sleep(6000);
+					sleep(12000);
 				}
 
 				ps.close(); //closes the file
