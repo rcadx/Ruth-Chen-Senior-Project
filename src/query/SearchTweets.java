@@ -15,7 +15,6 @@ import java.util.Date;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -90,61 +89,21 @@ public class SearchTweets {
 			List<RankingFilter> filters = new LinkedList<RankingFilter>(); //creates a list of words we want to filter for
 			TreeSet<RankedString> queue = new TreeSet<RankedString>(); //stores all the tweets in order of ranking
 
-			//adds to positive ranking filter
-			FileInputStream posStream = new FileInputStream("customization/positive_words_for_filter.txt"); //opens the file with positive words
-			BufferedReader posBR = new BufferedReader(new InputStreamReader(posStream));
-			String posLine = "";
-			int posLineNum = 0;
-			while((posLine = posBR.readLine()) != null){
-				if(posLineNum > 2) { //skipping instructions
-					StringTokenizer st = new StringTokenizer(posLine, "\t"); //each line's format is word	ranking
+			//loads words to filter
+			FileInputStream stream = new FileInputStream("customization/filters.txt"); //opens the file with positive words
+			BufferedReader br = new BufferedReader(new InputStreamReader(stream));
+			String line = "";
+			int lineNum = 1;
+			while((line = br.readLine()) != null){
+				if(lineNum > 7) { //skipping instructions
+					StringTokenizer st = new StringTokenizer(line, "\t"); //each line's format is word	ranking
 					String word = st.nextToken();
 					int posRating = Integer.parseInt(st.nextToken());
 					filters.add(new HasWord(word, posRating));
 				}
-				posLineNum++;
+				lineNum++;
 			}
-			posBR.close();
-			
-			//adds to negative ranking filter
-			FileInputStream negStream = new FileInputStream("customization/positive_words_for_filter.txt"); //opens the file with negative words
-			BufferedReader negBR = new BufferedReader(new InputStreamReader(negStream));
-			String negLine = "";
-			int negLineNum = 0;
-			while((negLine = negBR.readLine()) != null){
-				if(negLineNum > 2) { //skipping instructions
-					StringTokenizer st = new StringTokenizer(negLine, "\t");	//each line's format is word	ranking
-					String word = st.nextToken();
-					int negRating = Integer.parseInt(st.nextToken());
-					filters.add(new AvoidsWord(word, negRating));
-				}
-				negLineNum++;
-			}
-			negBR.close();
-
-			filters.add(new AvoidsWord("donation", 100)); //adds a NEGATIVE ranking filter to our list
-			filters.add(new AvoidsWord("donate", 100));
-			filters.add(new AvoidsWord("fundraiser", 100));
-			filters.add(new AvoidsWord("https", 100));
-			filters.add(new AvoidsWord("horoscope", 100));
-			filters.add(new AvoidsWord("aries", 100));
-			filters.add(new AvoidsWord("taurus", 100));
-			filters.add(new AvoidsWord("gemini", 100));
-			filters.add(new AvoidsWord("leo", 100));
-			filters.add(new AvoidsWord("virgo", 100));
-			filters.add(new AvoidsWord("libra", 100));
-			filters.add(new AvoidsWord("scorpio", 100));
-			filters.add(new AvoidsWord("sagittarius", 100));
-			filters.add(new AvoidsWord("capricorn", 100));
-			filters.add(new AvoidsWord("aquarius", 100));
-			filters.add(new AvoidsWord("pisces", 100));
-			filters.add(new AvoidsWord("cat", 30));
-			filters.add(new AvoidsWord("dog", 30));
-			filters.add(new AvoidsWord("mom", 30));
-			filters.add(new AvoidsWord("dad", 30));
-			filters.add(new AvoidsWord("aunt", 30));
-			filters.add(new AvoidsWord("nephew", 30));
-			filters.add(new AvoidsWord("sign", 5));
+			br.close();
 
 			do { //this is where we're actually filtering now
 				result = twitter.search(query); //running query
@@ -178,6 +137,7 @@ public class SearchTweets {
 				ps.println(s);
 			}
 
+			ps.close();
 			System.out.println("FINISHED RUNNING! Refresh the 'tweets' folder to view tweets.");
 
 		} catch (TwitterException te) {

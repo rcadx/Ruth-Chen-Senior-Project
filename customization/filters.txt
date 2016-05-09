@@ -1,0 +1,38 @@
+INSTRUCTIONS:
+Enter a word that's relevant or irrelevant to what you're searching, hit TAB, and enter a whole number as the rating. 
+If a word is relevant, give it a positive rating. 
+If a word is irrelevant, give it a negative rating.
+You MUST separate the word and a rating by a TAB. 
+Keep one word on each line. Don't add any extra line breaks!
+
+cancer lol	50
+leukemia	80
+tumor	50
+diabetes	80
+transplant	40
+incurable	30
+illness	30
+terminal	5
+donation	-100
+donate	-100
+fundraiser	-100
+https	-100
+horoscope	-100
+aries	-100
+taurus	-100
+gemini	-100
+leo	-100
+virgo	-100
+libra	-100
+scorpio	-100
+sagittarius	-100
+capricorn	-100
+aquarius	-100
+pisces	-100
+cat	-30
+dog	-30
+mom	-30
+dad	-30
+aunt	-30
+nephew	-30
+sign	-5

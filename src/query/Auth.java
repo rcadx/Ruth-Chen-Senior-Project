@@ -10,8 +10,8 @@ public class Auth {
 	public static Twitter auth() {
 		try {
 			ConfigurationBuilder cb = new ConfigurationBuilder();
-			cb.setOAuthConsumerKey("fbt4Tgx8FhmuoWSxXUlZOSVvd");
-			cb.setOAuthConsumerSecret("xCRTCxu2DEmfBvweFK7VTAYgmY6MS0HsJLc7WEq5AA1yuFjv88");
+			cb.setOAuthConsumerKey("Il6uBzWLAKFpfzpifxoi9NGTw");
+			cb.setOAuthConsumerSecret("ahio4tdUkOzaQmN21jn3DsEiKOlJuQMxqZWEfIya7WOE7nsw66");
 			//cb.setUseSSL(true);
 			cb.setStreamBaseURL("https://stream.twitter.com/1.1/");
 			cb.setDebugEnabled(true);
@@ -19,8 +19,8 @@ public class Auth {
 			twitter4j.conf.Configuration config = cb.build();
 			TwitterFactory factorystream = new TwitterFactory(config);
 			AccessToken acToken = new AccessToken(
-					"97778182-tkrksJYuRxu7P2FbGzgZkroCZgOq6bwp3nyU47Ysf", //authKey
-					"1PBaiVFGpx9vkZX7Rux4r6Ml9CgYTL2vqBaBGCfmCEt5W" //authSecret
+					"727906661977997312-s9QRUcEM24xBhtrRrELr3ACA0EYwRdJ", //authKey
+					"wIqfxAFwmJQRH5FZpPR2d97adsFLUZoQW4HgdwD41phCn" //authSecret
 					);
 			Twitter twitterStream = factorystream.getInstance(acToken);
 			TwitterFactory factory = new TwitterFactory(config);

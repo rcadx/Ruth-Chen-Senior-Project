@@ -42,7 +42,7 @@ import cse131.ArgsProcessor;
  * The name of each user's text file is based on their Twitter user ID and time/date of querying.
  * Example name of output text file: '5392522_Thu_May_05_16:44:00_CDT_2016.txt'
  * 	
- * The number of tweets from each user's timeline can be changed by editing the number of pages, on line 90 in the 'for' loop.
+ * The number of tweets from each user's timeline can be changed by editing the number of pages, on line 87 in the 'for' loop.
  * For example: To get 30 pages from a user's timeline...
  * 		Change the line		for(int pageNum = 1; pageNum < 21; pageNum++)
  * 				TO			for(int pageNum = 1; pageNum < 31; pageNum++)
@@ -84,7 +84,7 @@ public class UserTimeline {
 
 				int tweetNumber = 1; //counter 
 
-				for(int pageNum = 1; pageNum < 21; pageNum++){
+				for(int pageNum = 1; pageNum < 31; pageNum++){
 					//gets tweets AFTER specified tweet and prints them to the file
 					Paging afterPage = new Paging(pageNum, 500).sinceId(tweetID); //gets tweets after the specified tweet
 					List<Status> afterTweets = twitter.getUserTimeline(userID, afterPage); //list of tweets
@@ -109,14 +109,13 @@ public class UserTimeline {
 						}
 						tweetNumber++;
 					}
+					
+					sleep(6000);
 				}
 
 				ps.close(); //closes the file
-
-				sleep(9000);  //bypass the twitter query rate limit
 			}
 			while (i.hasNext()); //stop running if there are no other queries or we run out of time
-
 			System.out.println("FINISHED RUNNING! Refresh the 'timelines' folder to view tweets.");
 		} catch (TwitterException te) {
 			te.printStackTrace();

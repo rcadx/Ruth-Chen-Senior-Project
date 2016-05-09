@@ -1,5 +1,4 @@
 cancer
-cancerous
 diabetes
 terminal
 hospital
@@ -8,3 +7,4 @@ surgery
 transplant
 tumor
 diagnosis
+[keyword]
